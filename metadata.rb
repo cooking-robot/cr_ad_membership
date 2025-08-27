@@ -10,13 +10,13 @@ chef_version '>= 16.0'
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
 # uploaded to a Supermarket.
 #
-issues_url 'https://github.com/Cooking-Rebot/cr_ad_membership/issues'
+issues_url 'https://github.com/cooking-robot/cr_ad_membership/issues'
 
 # The `source_url` points to the development repository for this cookbook.  A
 # `View Source` link will be displayed on this cookbook's page when uploaded to
 # a Supermarket.
 #
-source_url 'https://github.com/Cooking-Rebot/cr_ad_membership'
+source_url 'https://github.com/cooking-robot/cr_ad_membership'
 
 depends 'line'
 depends 'cr_inifile'
