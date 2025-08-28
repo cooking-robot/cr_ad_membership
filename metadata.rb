@@ -2,8 +2,8 @@ name 'cr_ad_membership'
 maintainer 'Remi BONNET'
 maintainer_email 'prog.bontiv@gmail.com'
 license 'GPL-3.0'
-description 'Installs/Configures cr_ad_join'
-version '0.1.0'
+description 'Join or leave active directory (multiplatform)'
+version '0.1.1'
 chef_version '>= 16.0'
 
 # The `issues_url` points to the location where issues for this cookbook are

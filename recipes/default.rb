@@ -4,6 +4,14 @@
 #
 # Copyright:: 2025, Remi BONNET, GPL v3.
 
+if node['hostname'].length > 15
+  log 'Maximum hostname limit reached' do
+    level :error
+    message 'The machine hostname have more than 15 characters. It wil be truncate on the Active Directory and can overlap another machine.'
+  end
+  raise 'Maximum hostname length reached'
+end
+
 if node['ad_membership']['domain']
   ad_membership node['ad_membership']['domain'] do
     domain_name node['ad_membership']['domain']

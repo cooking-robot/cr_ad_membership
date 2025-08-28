@@ -12,16 +12,24 @@ This cookbook provide a default recipe that join AD and a custom resource if you
 
 The default recipe join an Active directory with the following attributes:
 
-* cr_ad_membership.ou : Organization unit to join
-* cr_ad_membership.user : Admin username. You might use the vault to keep instead of attributes credentials.
-* cr_ad_membership.password : Admin password. You might use the vault to keep instead of attributes credentials.
-* cr_ad_membership.hide_users : Array of username you don't want to appears on the login screen (like local admins).
-* cr_ad_membership.domain : Domain name (FQDN) to join.
+* `node['ad_membership']['ou']` : Organization unit to join
+* `node['ad_membership']['user']` : Admin username. You might use the vault to keep instead of attributes credentials.
+* `node['ad_membership']['password']` : Admin password. You might use the vault to keep instead of attributes credentials.
+* `node['ad_membership']['hide_users']` : Array of username you don't want to appears on the login screen (like local admins).
+* `node['ad_membership']['domain']` : Domain name (FQDN) to join.
 
 The default recipe also configure CIFS tools and Kerberos to use SSO on apps and shares on Linux.
 
+Notes:
+- On linux platform, the `ou` attribute is ignored.
+- On windows platform, the `hide_users` is ignored.
+
 #### Vault Items
 You may use Chef Vault for storing identifiants to join AD. The vault item used bu recipe is passwords:ads. The item must have two keys : user and Password.
+
+### CIFS recipe
+
+Use this recipe with the ad_membership resource. This recipe configure CIFS to use Kerberos for network shares.
 
 ## The resource
 
@@ -38,3 +46,5 @@ end
 ```
 
 Action can be `:join` to join AD and `:leave`.
+
+Be careful, hostname may not have more than 15 characters [AD DS maximum limits](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/active-directory-domain-services-maximum-limits).
