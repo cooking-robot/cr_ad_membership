@@ -2,7 +2,7 @@
 # Cookbook:: cr_ad_join
 # Recipe:: default
 #
-# Copyright:: 2025, The Authors, All Rights Reserved.
+# Copyright:: 2025, Remi BONNET, GPL v3.
 
 if node['ad_membership']['domain']
   ad_membership node['ad_membership']['domain'] do
